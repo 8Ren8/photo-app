@@ -6,6 +6,15 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
+development:
+  secret_key_base: xxxxxxxxxxxxxxxxxxxx
+  stripe_publishable_key: pk_test_xxxxxxxxxxxxxxxxxxxx
+  stripe_secret_key: sk_test_xxxxxxxxxxxxxxxxxxxxx
+
+production:
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+  stripe_publishable_key: ENV['stripe_publishable_key']
+  stripe_secret_key: ENV['stripe_publishable_key']
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
